@@ -2,14 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import img1 from "../assets/photos/img1.jpg";
-import img2 from "../assets/photos/img2.jpg";
-import img3 from "../assets/photos/img3.jpg";
+import img1 from '../../../assets/photos/img1.jpg';
+import img2 from '../../../assets/photos/img2.jpg';
+import img3 from '../../../assets/photos/img3.jpg';
 
 const testimonials = [
   {
@@ -58,7 +57,7 @@ const responsive = {
 const CustomLeftArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute left-1 top-1/2 -translate-y-1/2  text-black hover:text-[#017593] p-3  z-10"
+    className="absolute left-1 top-1/2 -translate-y-1/2  text-white hover:text-[#017593] p-3  z-10"
   >
     <ChevronLeft size={30} />
   </button>
@@ -67,7 +66,7 @@ const CustomLeftArrow = ({ onClick }) => (
 const CustomRightArrow = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="absolute right-1 top-1/2 -translate-y-1/2  text-black hover:text-[#017593] p-3  z-10"
+    className="absolute right-1 top-1/2 -translate-y-1/2  text-white hover:text-[#017593] p-3  z-10"
   >
     <ChevronRight size={30} />
   </button>
@@ -77,10 +76,10 @@ export default function PatientTestimonial() {
   return (
     <div className="min-h-screen bg-white py-16 px-4 relative">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#017593] mb-4">
+        <h2 className="text-5xl font-semibold text-[#017593] mb-4">
           What Our Patients Say
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-400 max-w-2xl mx-auto">
           We take pride in providing the best healthcare experience for our patients.
           Here are some of their stories and experiences.
         </p>
@@ -100,13 +99,13 @@ export default function PatientTestimonial() {
           keyBoardControl={true}
           containerClass="max-w-6xl mx-auto pb-12 relative"
           itemClass="px-4"
-          dotListClass="bg-white rounded-full"
+          dotListClass="bg-white rounded-full py-4 "
         >
           {testimonials.map((val) => (
             <motion.div
               key={val.id}
               whileHover={{ scale: 1.03 }}
-              className="bg-blue-100 shadow-lg rounded-lg p-8 mx-auto max-w-sm flex flex-col justify-between"
+              className="bg-[#56AFC1] shadow-lg rounded-lg p-8 mx-auto max-w-sm flex flex-col justify-between"
             >
               <div className="flex items-center mb-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
@@ -119,23 +118,16 @@ export default function PatientTestimonial() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800">{val.name}</h3>
-                  <p className="text-sm text-gray-500">{val.location}</p>
+                  <h3 className="text-lg font-sans text-white">{val.name}</h3>
+                  <p className="text-sm text-gray-200">{val.location}</p>
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-6 italic leading-relaxed">
+              <p className="text-gray-200 mb-6  leading-relaxed">
                 "{val.feedback}"
               </p>
 
-              <div className="flex justify-center mt-auto">
-                {[...Array(val.rating)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="text-yellow-400 fill-yellow-400 w-5 h-5"
-                  />
-                ))}
-              </div>
+
             </motion.div>
           ))}
         </Carousel>
